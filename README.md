@@ -1,1 +1,6 @@
-# clock-2
+quickstart:
+
+```
+npm install
+npm start
+```
