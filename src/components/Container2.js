@@ -2,7 +2,7 @@ import React from 'react';
 // import Hours from './Hours';
 // import Minutes from './Minutes';
 
-export const Container = ({ hours, minutes, seconds }) => {
+export const Container2 = ({ hours, minutes, seconds }) => {
   return (
     <>
       {/* container */}
@@ -18,17 +18,17 @@ export const Container = ({ hours, minutes, seconds }) => {
         <div
           className='w-4 h-4 bg-yellow-400 absolute z-10 rounded-full'
           style={{
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-30%, -30%)',
+            left: '45%',
+            top: '45%',
           }}
         />
         {/* hours */}
         <div
           className='bg-black w-2 absolute'
           style={{
-            height: '6rem',
+            height: '4rem',
             left: '50%',
+            top: '18%',
             transformOrigin: '50% 100%',
             transform: `rotate(${(hours / 12) * 360}deg)`,
             borderRadius: '2rem',
