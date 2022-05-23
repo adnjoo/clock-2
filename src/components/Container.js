@@ -4,28 +4,54 @@ import React from 'react';
 
 export const Container = ({ hours, minutes, seconds }) => {
   return (
-    <div className='mx-auto w-48 h-48 my-48 flex justify-center border'>
-      {/* hours */}
+    <>
       <div
-        className='bg-orange-400 w-2'
+        className='mx-auto w-48 h-48 border relative rounded-2xl'
         style={{
-          transform: `rotate(${(hours / 12) * 360}deg) translateY(-50%)`,
+          marginTop: '16rem',
+          borderRadius: '2rem',
+          boxShadow: '10px 10px 20px 0.5rem rgba(0,0,0,0.5)',
         }}
-      ></div>
-      {/* minutes */}
+      >
+        {/* hours */}
+        <div
+          className='bg-orange-400 w-2 absolute'
+          style={{
+            height: '6rem',
+            left: '50%',
+            transformOrigin: 'bottom left',
+            transform: `rotate(${(hours / 12) * 360}deg)`,
+          }}
+        ></div>
+        {/* minutes */}
+        <div
+          className='bg-blue-400 w-2 absolute'
+          style={{
+            // display: 'none',
+            height: '6rem',
+            left: '50%',
+            transformOrigin: 'bottom left',
+            transform: `rotate(${(minutes / 60) * 360}deg)`,
+          }}
+        ></div>
+        {/* seconds */}
+        <div
+          className='bg-green-400 w-2 absolute'
+          style={{
+            // display: 'none',
+            height: '6rem',
+            left: '50%',
+            transformOrigin: 'bottom left',
+            transform: `rotate(${(seconds / 60) * 360}deg)`,
+          }}
+        ></div>
+      </div>
       <div
-        className='bg-blue-400 w-2'
-        style={{
-          transform: `rotate(${(minutes / 60) * 360}deg) translateY(-50%)`,
-        }}
-      ></div>
-      {/* seconds */}
-      <div
-        className='bg-green-400 w-2'
-        style={{
-          transform: `rotate(${(seconds / 60) * 360}deg) translateY(-50%)`,
-        }}
-      ></div>
-    </div>
+        className='mx-auto'
+        style={{ margin: '1rem auto', width: '50%', textAlign: 'center' }}
+      >
+        {hours}:{minutes}:{seconds}
+      </div>
+    </>
   );
 };

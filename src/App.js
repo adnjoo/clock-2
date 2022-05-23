@@ -1,8 +1,11 @@
 import React from 'react';
-import moment, { weekdays } from 'moment';
+import moment from 'moment';
 import { Container } from './components/Container';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   const [state, setState] = React.useState({});
+
   React.useEffect(() => {
     setInterval(() => {
       setState((prevState) => {
@@ -15,15 +18,26 @@ function App() {
       });
     }, 1000);
   }, []);
-  React.useEffect(() => {
-    console.log(state);
-  }, [state]);
+
+  // React.useEffect(() => {
+  //   console.log(state);
+  // }, [state]); // dev debug
+
   return (
-    <Container
-      hours={state.hours}
-      minutes={state.minutes}
-      seconds={state.seconds}
-    />
+    <Router>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <Container
+              hours={state.hours}
+              minutes={state.minutes}
+              seconds={state.seconds}
+            />
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
